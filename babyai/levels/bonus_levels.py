@@ -668,6 +668,28 @@ class Level_KeyCorridorS6R3(KeyCorridor):
             seed=seed
         )
 
+####################################################
+class Level_PickupKey(RoomGridLevel):
+    """
+    Pick up the key
+    Rooms have a size of 6
+    """
+
+    def __init__(self, room_size=6, seed=None):
+        super().__init__(
+            room_size=room_size,
+            num_rows=1,
+            num_cols=1,
+            seed=seed
+        )
+
+    def gen_mission(self):
+        obj, _ = self.add_object(0, 0, kind="key")
+        self.place_agent()
+        self.instrs = PickupInstr(ObjDesc(obj.type))
+####################################################
+
+
 class Level_1RoomS8(RoomGridLevel):
     """
     Pick up the ball

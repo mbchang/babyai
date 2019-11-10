@@ -25,6 +25,29 @@ class Level_OpenRedDoor(RoomGridLevel):
         self.place_agent(0, 0)
         self.instrs = OpenInstr(ObjDesc('door', 'red'))
 
+####################################################
+class Level_OpenOneDoor(RoomGridLevel):
+    """
+    Go to the sole door
+    (always unlocked, in the current room)
+    Note: this level is intentionally meant for debugging and is
+    intentionally kept very simple.
+    """
+
+    def __init__(self, seed=None):
+        super().__init__(
+            num_rows=1,
+            num_cols=2,
+            room_size=5,
+            seed=seed
+        )
+
+    def gen_mission(self):
+        obj, _ = self.add_door(0, 0, 0, locked=False)
+        self.place_agent(0, 0)
+        self.instrs = OpenInstr(ObjDesc('door'))
+####################################################
+
 
 class Level_OpenDoor(RoomGridLevel):
     """

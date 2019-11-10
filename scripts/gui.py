@@ -428,5 +428,38 @@ def main(argv):
     sys.exit(app.exec_())
 
 
+def debug_rendering(env_name):
+    import matplotlib
+    matplotlib.use('Agg')
+    from matplotlib import pyplot as plt
+    env = gym.make()
+    state = env.reset()
+    image = state['image']
+    frame = env.render(mode='rgb_array')
+    print(image.shape)
+    print(frame.shape)
+    plt.imsave('img.png', frame)
+
+
+
+# def debug_rendering(env_name):
+#     env = gym.make(env_name)
+#     state = env.reset()
+#     image = state['image']
+#     frame = env.render(mode='rgb_array')
+# #     plt.imsave('frame{}.png'.format(env_name), frame)
+# #     plt.imsave('image{}.png'.format(env_name), image)
+#     print(frame.shape)
+#     plt.imshow(frame)
+# #     plt.imshow(image)  # why is this all black?
+
+    
+    
+
+
 if __name__ == '__main__':
-    main(sys.argv)
+    # main(sys.argv)
+    debug_rendering()
+
+
+

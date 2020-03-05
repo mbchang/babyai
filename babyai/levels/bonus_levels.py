@@ -44,7 +44,7 @@ class Level_OpenOneDoor(RoomGridLevel):
 
     def gen_mission(self):
         obj, _ = self.add_door(0, 0, 0, locked=False)
-        self.place_agent(0, 0)
+        self.place_agent()
         self.instrs = OpenInstr(ObjDesc('door'))
 ####################################################
 
@@ -698,7 +698,7 @@ class Level_PickupKey(RoomGridLevel):
     Rooms have a size of 6
     """
 
-    def __init__(self, room_size=6, seed=None):
+    def __init__(self, room_size=8, seed=None):
         super().__init__(
             room_size=room_size,
             num_rows=1,

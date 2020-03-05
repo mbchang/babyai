@@ -458,8 +458,8 @@ def debug_rendering(env_name):
 
 
 if __name__ == '__main__':
-    # main(sys.argv)
-    debug_rendering()
+    main(sys.argv)
+    # debug_rendering()
 
 
 
